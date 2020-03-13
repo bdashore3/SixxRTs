@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "TTE_Bot": {
+      "commandName": "Project",
+      "commandLineArgs": "D:/Benders/hellsend/TTE_Bot/creds.json"
+    }
+  }
+}
