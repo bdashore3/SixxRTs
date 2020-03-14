@@ -10,9 +10,7 @@ namespace TTE_Bot.Helpers.Security
     public static string C_API_S_K { get; private set; }
     public static string TOKEN { get; private set; }
     public static string TOKEN_S { get; private set; }
-
-    // TODO: Allow custom prefixes guild-wise
-    public static string Prefix { get; private set; } = "t;";
+    public static string TWITCH_CID { get; private set; }
 
     // This struct might show warnings about no initialized value
     // It is assigned by the JSON read operation in ReadCreds()
@@ -30,6 +28,9 @@ namespace TTE_Bot.Helpers.Security
 
       [JsonProperty("Token_S")]
       public string TOKEN_S;
+
+      [JsonProperty("Twitch_CID")]
+      public string TWITCH_CID;
     }
 #pragma warning restore 0649
 
@@ -46,6 +47,7 @@ namespace TTE_Bot.Helpers.Security
       C_API_S_K = creds.C_API_S_K;
       TOKEN = creds.TOKEN;
       TOKEN_S = creds.TOKEN_S;
+      TWITCH_CID = creds.TWITCH_CID;
       return true;
     }
   }
