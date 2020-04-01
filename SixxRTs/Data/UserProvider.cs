@@ -7,7 +7,7 @@ namespace SixxRTs.Data
     private static List<string> twitchNames = new List<string>()
     {
       "kingbrigames",
-      "AyeGooFyz"
+      "regalbot1"
     };
 
     public static List<string> GetTwitchUsers()
