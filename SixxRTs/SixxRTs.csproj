@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>TTE_Bot</RootNamespace>
+    <RootNamespace>SixxRTs</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

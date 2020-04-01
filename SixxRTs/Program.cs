@@ -1,6 +1,6 @@
-﻿using TTE_Bot.Utils;
+﻿using SixxRTs.Utils;
 
-namespace TTE_Bot
+namespace SixxRTs
 {
   class Program
   {

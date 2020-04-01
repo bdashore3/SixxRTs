@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Threading.Tasks;
-using TTE_Bot.Data;
-using TTE_Bot.Handler;
-using TTE_Bot.Helpers.Security;
+using SixxRTs.Data;
+using SixxRTs.Handler;
+using SixxRTs.Helpers.Security;
 using Tweetinvi;
 using TwitchLib.Api;
 using TwitchLib.Api.Services;
 
-namespace TTE_Bot.Utils
+namespace SixxRTs.Utils
 {
   class ClientKeeper
   {

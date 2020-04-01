@@ -2,7 +2,7 @@
 using TwitchLib.Api.Services.Events;
 using TwitchLib.Api.Services.Events.LiveStreamMonitor;
 
-namespace TTE_Bot.Handler
+namespace SixxRTs.Handler
 {
   class StreamEventHandler
   {

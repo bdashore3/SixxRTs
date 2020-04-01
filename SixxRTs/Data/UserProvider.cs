@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace TTE_Bot.Data
+namespace SixxRTs.Data
 {
   class UserProvider
   {

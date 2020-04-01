@@ -2,7 +2,7 @@
 using System.IO;
 using System.Threading.Tasks;
 
-namespace TTE_Bot.Helpers.Security
+namespace SixxRTs.Helpers.Security
 {
   class CredentialsKeeper
   {

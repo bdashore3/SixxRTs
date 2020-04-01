@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace TTE_Bot.Helpers
+namespace SixxRTs.Helpers
 {
   // TODO: Tweet handling in response to twitch events
   class TweetHelper
