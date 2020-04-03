@@ -1,8 +1,0 @@
-{
-  "profiles": {
-    "TTE_Bot": {
-      "commandName": "Project",
-      "commandLineArgs": "E:/Projects/SixxRTs/SixxRTs/creds.json"
-    }
-  }
-}
