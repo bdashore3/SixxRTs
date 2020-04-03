@@ -1,4 +1,5 @@
 ﻿using System;
+using SixxRTs.Helpers;
 using TwitchLib.Api.Services.Events;
 using TwitchLib.Api.Services.Events.LiveStreamMonitor;
 
@@ -6,13 +7,20 @@ namespace SixxRTs.Handler
 {
     class StreamEventHandler
     {
-        // TODO: Use TweetHelper to tweet that the stream is live!
-        public void OnStreamOnline(object sender, OnStreamOnlineArgs e)
+        private readonly TweetHelper _tweetHelper;
+
+        public StreamEventHandler(TweetHelper tweetHelper)
         {
-            Console.WriteLine("Got online notification!");
-            Console.WriteLine("Channel: " + e.Channel);
+            _tweetHelper = tweetHelper;
         }
 
+        // When stream is online, pass the appropriate parameters to TweetHelper
+        public void OnStreamOnline(object sender, OnStreamOnlineArgs e)
+        {
+            _tweetHelper.StreamLive(e.Stream.UserName, e.Stream.Title);
+        }
+
+        // Let the record say that the service IS on
         public void OnServiceStarted(object sender, OnServiceStartedArgs e)
         {
             Console.WriteLine("Currently monitoring all creator livestreams!");

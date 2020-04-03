@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using SixxRTs.Data;
 using SixxRTs.Handler;
+using SixxRTs.Helpers;
 using SixxRTs.Helpers.Security;
 using Tweetinvi;
 using TwitchLib.Api;
@@ -13,7 +14,6 @@ namespace SixxRTs
     {
         // Variables for Dependency Injection
         private readonly StreamEventHandler _eventHandler;
-
         // DI constructor
         public RtBot(StreamEventHandler eventHandler)
         {
@@ -21,9 +21,11 @@ namespace SixxRTs
         }
 
         // Method to start the bot (May not be needed due to async main() method)
-        public async Task Launch(string credsPath)
+        public async Task Launch(string credsPath, string usernamePath)
         {
             await CredentialsKeeper.ReadCreds(credsPath);
+
+            await UsernameReader.ReadUsernames(usernamePath);
 
             SetCreds();
 
@@ -32,7 +34,7 @@ namespace SixxRTs
             await Task.Delay(-1);
         }
 
-        // Set the credentials for Twitter. TODO: Move this to CredentialsKeeper
+        // Set the credentials for Twitter
         private static void SetCreds()
         {
             Auth.SetUserCredentials(
