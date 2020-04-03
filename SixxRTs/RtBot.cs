@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 using SixxRTs.Data;
 using SixxRTs.Handler;
@@ -57,8 +58,8 @@ namespace SixxRTs
 
             monitor.SetChannelsByName(UserProvider.GetTwitchUsers());
             monitor.OnStreamOnline += _eventHandler.OnStreamOnline;
+            monitor.OnStreamOffline += _eventHandler.OnStreamOffline;
             monitor.OnServiceStarted += _eventHandler.OnServiceStarted;
-
             monitor.Start();
 
             Console.WriteLine("Twitch API services started");
