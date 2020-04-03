@@ -2,17 +2,18 @@
 
 namespace SixxRTs.Data
 {
-  class UserProvider
-  {
-    private static List<string> twitchNames = new List<string>()
+    class UserProvider
     {
-      "kingbrigames",
-      "regalbot1"
-    };
+        // TODO: Make this auto-generate on startup from either a postgres database/JSON file
+        private static List<string> twitchNames = new List<string>()
+        {
+            "kingbrigames",
+            "regalbot1"
+        };
 
-    public static List<string> GetTwitchUsers()
-    {
-      return twitchNames;
+        public static List<string> GetTwitchUsers()
+        {
+            return twitchNames;
+        }
     }
-  }
 }

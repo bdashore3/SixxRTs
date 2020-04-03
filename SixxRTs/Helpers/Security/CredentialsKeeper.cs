@@ -6,31 +6,34 @@ namespace SixxRTs.Helpers.Security
 {
   class CredentialsKeeper
   {
-    public static string C_API_K { get; private set; }
-    public static string C_API_S_K { get; private set; }
-    public static string TOKEN { get; private set; }
-    public static string TOKEN_S { get; private set; }
-    public static string TWITCH_CID { get; private set; }
+    public static string ConsumerKey { get; private set; }
+    public static string ConsumerSecret { get; private set; }
+    public static string AuthToken { get; private set; }
+    public static string AuthSecret { get; private set; }
+    public static string TwitchId { get; private set; }
+    public static string TwitchSecret { get; private set; }
 
     // This struct might show warnings about no initialized value
     // It is assigned by the JSON read operation in ReadCreds()
 #pragma warning disable 0649
     private struct CredsJson
     {
-      [JsonProperty("C_API_K")]
-      public string C_API_K;
+      [JsonProperty("ConsumerKey")]
+      public string ConsumerKey;
 
-      [JsonProperty("C_API_S_K")]
-      public string C_API_S_K;
+      [JsonProperty("ConsumerSecret")]
+      public string ConsumerSecret;
 
-      [JsonProperty("Token")]
-      public string TOKEN;
+      [JsonProperty("AuthToken")]
+      public string AuthToken;
 
-      [JsonProperty("Token_S")]
-      public string TOKEN_S;
+      [JsonProperty("AuthSecret")]
+      public string AuthSecret;
 
-      [JsonProperty("Twitch_CID")]
-      public string TWITCH_CID;
+      [JsonProperty("TwitchId")]
+      public string TwitchId;
+      [JsonProperty("TwitchSecret")]
+      public string TwitchSecret;
     }
 #pragma warning restore 0649
 
@@ -43,11 +46,12 @@ namespace SixxRTs.Helpers.Security
         info = await sr.ReadToEndAsync();
 
       CredsJson creds = JsonConvert.DeserializeObject<CredsJson>(info);
-      C_API_K = creds.C_API_K;
-      C_API_S_K = creds.C_API_S_K;
-      TOKEN = creds.TOKEN;
-      TOKEN_S = creds.TOKEN_S;
-      TWITCH_CID = creds.TWITCH_CID;
+      ConsumerKey = creds.ConsumerKey;
+      ConsumerSecret = creds.ConsumerSecret;
+      AuthToken = creds.AuthToken;
+      AuthSecret = creds.AuthSecret;
+      TwitchId = creds.TwitchId;
+      TwitchSecret = creds.TwitchSecret;
       return true;
     }
   }
