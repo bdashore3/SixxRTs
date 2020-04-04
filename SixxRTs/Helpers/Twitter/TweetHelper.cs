@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Concurrent;
-using System.Text;
 using System.Threading.Tasks;
 using Tweetinvi;
 
@@ -17,7 +16,7 @@ namespace SixxRTs.Helpers
          *
          * Store the time once the stream tweet is posted and don't update it
          */
-        public void HandleCooldown(string twitchUsername, string title) 
+        public async Task HandleCooldown(string twitchUsername, string title) 
         {
             // Cooldown may not have been removed the last time
             RemoveCooldown(twitchUsername);
@@ -26,7 +25,7 @@ namespace SixxRTs.Helpers
 
             if (!cooldown.ContainsKey(twitchUsername))
             {
-                StreamLive(twitchUsername, title);
+                await StreamLive(twitchUsername, title);
                 cooldown[twitchUsername] = curTime;
             }
             else 
@@ -46,6 +45,12 @@ namespace SixxRTs.Helpers
         {
             long curTime = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
 
+            if (!cooldown.ContainsKey(twitchUsername)) 
+            {
+                Console.WriteLine("This username doesn't exist in the dict! Breaking!");
+                return;
+            }
+
             long diffTime = curTime - cooldown[twitchUsername];
             if (diffTime < 5400)
             {
@@ -57,10 +62,10 @@ namespace SixxRTs.Helpers
         }
 
         // Tweet that the stream is live!
-        private void StreamLive(string twitchUsername, string title) 
+        private async Task StreamLive(string twitchUsername, string title) 
         {
             string twitterUsername = UsernameReader.CreatorUsernames[twitchUsername];
-            Tweet.PublishTweet($"Everyone! @{twitterUsername} is now LIVE with stream title: {title}\n\nGo support at https://twitch.tv/{twitchUsername}!");
+            await TweetAsync.PublishTweet($"Everyone! @{twitterUsername} is now LIVE with stream title: {title}\n\nGo support at https://twitch.tv/{twitchUsername}!");
         }
     }
 }

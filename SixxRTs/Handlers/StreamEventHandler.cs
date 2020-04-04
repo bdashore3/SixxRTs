@@ -15,9 +15,9 @@ namespace SixxRTs.Handler
         }
 
         // When stream is online, pass the appropriate parameters to TweetHelper
-        public void OnStreamOnline(object sender, OnStreamOnlineArgs e)
+        public async void OnStreamOnline(object sender, OnStreamOnlineArgs e)
         {
-            _tweetHelper.HandleCooldown(e.Stream.UserName, e.Stream.Title);
+            await _tweetHelper.HandleCooldown(e.Stream.UserName, e.Stream.Title);
         }
 
         // When the stream is offline, try to remove the cooldown

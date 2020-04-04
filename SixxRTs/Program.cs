@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using SixxRTs.Data;
 using SixxRTs.Handler;
 using SixxRTs.Helpers;
 using System.Threading.Tasks;
